@@ -13,7 +13,7 @@ apt-get install -y python3 python3-pip curl wget git net-tools iptables build-es
 
 echo "[+] Descomprimiendo la suite completa RUSSO NETFREE..."
 TMP_TAR=$(mktemp)
-tail -n +45 "$0" | base64 -d > "$TMP_TAR"
+tail -n +52 "$0" | base64 -d > "$TMP_TAR"
 tar -xzvf "$TMP_TAR" -C /
 rm -f "$TMP_TAR"
 
@@ -27,18 +27,24 @@ cat << 'CMD' > /usr/bin/adm
 cd /etc/adm-lite && ./menu
 CMD
 
+# Crear carpetas y enlaces simbólicos para corregir la ruta /bin/ejecutar
 mkdir -p /usr/bin/ejecutar /etc/adm-lite
+ln -sf /usr/bin/ejecutar /bin/ejecutar
+
+# Archivos de inicialización y logs requeridos
 echo "Verified RUSSO NETFREE" > /usr/bin/ejecutar/exito
 echo -e "RUSSO NETFREE\n7649996181" > /usr/bin/ejecutar/menu_credito
 echo "RUSSO NETFREE" > /etc/adm-lite/name
+touch /usr/bin/ejecutar/v-new.log /usr/bin/ejecutar/uskill
 
+# Corregir permisos y formatos
 sed -i 's/\r$//' /usr/bin/menu /usr/bin/adm /etc/adm-lite/* /usr/bin/ejecutar/* 2>/dev/null
 chmod +x /usr/bin/menu /usr/bin/adm
-chmod -R +x /etc/adm-lite /usr/bin/ejecutar
+chmod -R +x /etc/adm-lite /usr/bin/ejecutar /bin/ejecutar
 
 clear
 echo "=========================================="
-echo " ¡INSTALACIÓN COMPLETA Y FUNCIONAL!       "
+echo " ¡INSTALACIÓN COMPLETA Y CORREGIDA!       "
 echo " Escribe 'menu' para iniciar.             "
 echo "=========================================="
 
