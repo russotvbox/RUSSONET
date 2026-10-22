@@ -37,11 +37,11 @@ chmod -R 755 /etc/adm-lite /usr/bin/ejecutar /bin/ejecutar
 
 clear
 echo "=========================================="
-echo " ¡INSTALACIÓN COMPLETA Y CORREGIDA!       "
-echo " Escribe 'menu' para iniciar.             "
+echo " ¡INSTALACIÓN COMPLETA Y EXITOSA!         "
 echo "=========================================="
-
-cd /etc/adm-lite && ./menu
+echo ""
+echo " Escribe 'menu' o 'adm' para iniciar."
+echo ""
 exit 0
 H4sIAAAAAAAAA+w9a3PbtrL9Wv0K1J2OpESiJfmVynV6XFtJPHVsj6W0vaOoHEqELF5TJEtSfvTc
 89/vLgCSAAlKcqokPeeEnVoUsVjsC4vFYqnQeLJt2fOm68R0+6uPc7XgOtjbY59w5T/ZfXuvs7+/
